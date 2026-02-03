@@ -1,98 +1,52 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Pneumonia Resnet18" />
+# The Lung Vision Project: Transparent AI for Pneumonia Detection
 
-  &#xa0;
+### The Origin Story
 
-  <!-- <a href="https://pneumoniaresnet18.netlify.app">Demo</a> -->
-</div>
+This project began as a personal quest to understand how deep learning can assist in critical medical decision-making. As someone fascinated by the intersection of healthcare and technology, I wanted to move beyond simple "black-box" classifiers.
 
-<h1 align="center">Pneumonia Resnet18</h1>
+I set out to build a tool for my portfolio that doesn't just provide a diagnosis, but acts as a **visual partner** for healthcare providers—highlighting exactly what the model sees when it flags a potential case of pneumonia.
 
-<p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8">
+### The Architecture: ResNet-18
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8">
+To power this vision, I chose **ResNet-18**. In a medical environment, speed and reliability are paramount. ResNet-18’s residual skip-connections allowed for deep feature extraction without the risk of vanishing gradients, making it a "lean and mean" engine capable of running efficiently on standard hardware while maintaining high-tier accuracy.
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8">
+### Proving the Concept: The Scores
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8">
+When lives are on the line, **Recall** is the most important metric. We need to ensure that almost no sick patient goes undetected.
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8" /> -->
+| Metric | Score | Impact |
+| --- | --- | --- |
+| **Recall (Pneumonia)** | **97.9%** | **Crucial:** We minimize the risk of missing a diagnosis. |
+| **Accuracy** | **94.6%** | High overall reliability for clinical screening. |
+| **Precision** | **92.3%** | Efficiently reduces the workload by minimizing false alarms. |
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8" /> -->
+### Seeing Through the AI: Grad-CAM
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18?color=56BEB8" /> -->
-</p>
+The heart of this project is **explainability**. Using **Grad-CAM** (Gradient-weighted Class Activation Mapping), the app generates heatmaps over the chest X-rays.
 
-<!-- Status -->
+* **The Point:** It’s not enough for the AI to say "Pneumonia." Grad-CAM allows the user to see *where* the model found the opacity or inflammation. This bridge of transparency is what builds trust between human expertise and machine intelligence.
 
-<!-- <h4 align="center"> 
-	🚧  Pneumonia Resnet18 🚀 Under construction...  🚧
-</h4> 
+### The Challenge: Balancing the Scales
 
-<hr> -->
+One major hurdle was the **class imbalance**—a common issue in medical datasets where healthy images often outweigh sick ones (or vice versa). To solve this, I implemented custom data augmentation and weighted loss functions to ensure the model didn't become "lazy" and just guess the majority class.
 
-<p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
-</p>
+---
 
-<br>
+### Launch the Project
 
-## :dart: About ##
+You can explore the live model right now on **Hugging Face Spaces**:
+👉 **[Live Demo Here](https://huggingface.co/spaces/itserphan/pneumonia-detection-resnet18)**
 
-Describe your project
-
-## :sparkles: Features ##
-
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
-
-## :rocket: Technologies ##
-
-The following tools were used in this project:
-
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-## :white_check_mark: Requirements ##
-
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
-
-## :checkered_flag: Starting ##
+To run this locally on any device:
 
 ```bash
-# Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/pneumonia-resnet18
+git clone https://github.com/ErphanRajai/pneumonia-resnet18.git
+cd pneumonia-resnet18
 
-# Access
-$ cd pneumonia-resnet18
+pip install -r requirements.txt
 
-# Install dependencies
-$ yarn
+# 3. Fire up the Streamlit interface
+# This will open the app in your default web browser
+streamlit run app.py
 
-# Run the project
-$ yarn start
-
-# The server will initialize in the <http://localhost:3000>
 ```
-
-## :memo: License ##
-
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
-
-&#xa0;
-
-<a href="#top">Back to top</a>
